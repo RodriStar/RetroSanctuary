@@ -1,0 +1,15 @@
+{
+  "name": "retrosanctuary",
+  "version": "1.0.0",
+  "description": "Proyecto Retro Sanctuary para consolas y videojuegos",
+  "license": "ISC",
+  "author": "Rodrigo",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
