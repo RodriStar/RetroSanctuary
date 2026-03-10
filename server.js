@@ -1,5 +1,6 @@
 import express from 'express';
 import consolasRouter from './routes/consolas.routes.js';
+import usuariosRouter from './routes/users.routes.js'
 import conectarBD from './config/database.js';
 
 const app = express();
@@ -8,6 +9,7 @@ app.use(express.json());
 await conectarBD();
 
 app.use('/api/consolas', consolasRouter);
+app.use('/api/usuarios', usuariosRouter);
 
 app.get('/', (req, res) => {
     res.send('¡Hola, mundo!');
