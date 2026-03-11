@@ -8,6 +8,12 @@ const app = express();
 app.use(express.json());
 
 // app.use(miMiddlewareGlobal);
+app.use((err,req,res,next)=>{
+ res.status(err.statusCode || 500).json({
+  status:"error",
+  message:err.message
+ })
+})
 
 await conectarBD();
 

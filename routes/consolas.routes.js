@@ -1,6 +1,8 @@
 import express from 'express';
 import Consola from '../models/Consola.js';
-
+import { autenticarJWT, autorizarRol } from '../middlewares/auth.js';
+import { catchAsync } from '../utils/catchAsync.js';
+import { AppError } from '../utils/AppError.js';
 
 const router = express.Router();
 
@@ -56,7 +58,7 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
+router.post('/', autenticarJWT, autorizarRol('admin'), catchAsync(async (req, res) => {
     const nuevaConsolaData = req.body;
     try {
         const nuevaConsola = new Consola(nuevaConsolaData);
@@ -67,10 +69,10 @@ router.post('/', async (req, res) => {
             mensaje: 'Error al crear la consola', error: error.message
         });
     }
-});
+}));
 
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', autenticarJWT, autorizarRol('admin'), catchAsync(async (req, res) => {
     const { id } = req.params;
     const datosActualizados = req.body;
     try {
@@ -85,9 +87,9 @@ router.put('/:id', async (req, res) => {
             mensaje: 'Error al actualizar la consola', error: error.message
         });
     }
-});
+}));
 
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', autenticarJWT, autorizarRol('admin'), catchAsync(async (req, res) => {
     const { id } = req.params;
     const datosParciales = req.body;
     try {
@@ -102,10 +104,10 @@ router.patch('/:id', async (req, res) => {
             mensaje: 'Error al actualizar la consola', error: error.message
         });
     }
-});
+}));
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', autenticarJWT, autorizarRol('admin'), catchAsync(async (req, res) => {
     const { id } = req.params;
     try {
         const consolaEliminada = await Consola.findById(id);
@@ -122,7 +124,7 @@ router.delete('/:id', async (req, res) => {
             mensaje: 'Error al eliminar la consola', error: error.message
         });
     }
-});
+}));
 
 
 
