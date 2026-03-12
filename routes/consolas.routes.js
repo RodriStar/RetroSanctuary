@@ -44,7 +44,7 @@ try {
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const consola = await Consola.find({ _id: id, isDeleted: false });
+        const consola = await Consola.findOne({ _id: id, isDeleted: false });
         if (consola) {
             res.json(consola);
         } else {
