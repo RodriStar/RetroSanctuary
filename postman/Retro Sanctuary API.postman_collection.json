@@ -14,7 +14,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"username\": \"Diego_admin\",\r\n    \"email\": \"diego_admin@email.com\",\r\n    \"password\": \"Test1234\",\r\n    \"role\": \"admin\"\r\n}\r\n",
+          "raw": "{\r\n    \"username\": \"User_admin para eliminar\",\r\n    \"email\": \"user_adminParaEliminar@email.com\",\r\n    \"password\": \"Test1234\",\r\n    \"role\": \"admin\"\r\n}\r\n",
           "options": {
             "raw": {
               "language": "json"
@@ -70,23 +70,16 @@
       "response": []
     },
     {
-      "name": "Crear consola (admin)",
+      "name": "Login Rodrigo2 (admin)",
       "request": {
         "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjIxNjU4NjQxODQxNjczZGU3ZGQ4MCIsInVzZXJuYW1lIjoiRGllZ29fYWRtaW4iLCJlbWFpbCI6ImRpZWdvX2FkbWluQGVtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MzI3OTEzNiwiZXhwIjoxNzczMzY1NTM2fQ.VTiGQA4aPt9Zdhwvx8f38GeyfaYGj72I3p5PPzp0h6U",
-              "type": "string"
-            }
-          ]
+          "type": "noauth"
         },
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n        \"nombre\": \"PlayStation 7\",\r\n        \"fabricante\": \"Sony\",\r\n        \"año\": 2026,\r\n        \"generacion\": 8,\r\n        \"descripcion\": \"La última consola, nunca antes vista\",\r\n        \"precioEstimado\": 450\r\n        \r\n}",
+          "raw": "{\r\n    \"email\": \"rodri2@email.com\",\r\n    \"password\": \"Test1234\"\r\n}\r\n",
           "options": {
             "raw": {
               "language": "json"
@@ -94,7 +87,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:3001/api/consolas/",
+          "raw": "http://localhost:3001/api/auth/login/",
           "protocol": "http",
           "host": [
             "localhost"
@@ -102,10 +95,129 @@
           "port": "3001",
           "path": [
             "api",
-            "consolas",
+            "auth",
+            "login",
             ""
           ]
         }
+      },
+      "response": []
+    },
+    {
+      "name": "Login Rodrigo (user)",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"rodri@email.com\",\r\n    \"password\": \"Test1234\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/auth/login/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "auth",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener usuarios",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjA4YWVlMjhhN2VlMGRmN2E3MzA5YSIsInVzZXJuYW1lIjoiUm9kcmlnbzIiLCJlbWFpbCI6InJvZHJpMkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzMyODI4MzEsImV4cCI6MTc3MzM2OTIzMX0.xVMDN9UHeWjwoUoWd1JlfHprImic3FCY16pvNC_TNhs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/usuarios/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "usuarios",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener usuario Rodrigo",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjA4YWVlMjhhN2VlMGRmN2E3MzA5YSIsInVzZXJuYW1lIjoiUm9kcmlnbzIiLCJlbWFpbCI6InJvZHJpMkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzM1MzY4MTUsImV4cCI6MTc3MzYyMzIxNX0.zMxv6t4Q_okzjk1wiwp7zkdtqJGojrrtBNoHN_BDNpw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/usuarios/69af7808a68ea896fee692d9",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "usuarios",
+            "69af7808a68ea896fee692d9"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar usuario",
+      "request": {
+        "method": "GET",
+        "header": []
       },
       "response": []
     },
@@ -148,7 +260,50 @@
       "response": []
     },
     {
-      "name": "Crear videojuego",
+      "name": "Obtener consola Xbox",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/consolas/69af7610a68ea896fee692d1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "consolas",
+            "69af7610a68ea896fee692d1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear consola (admin)",
       "request": {
         "auth": {
           "type": "bearer",
@@ -164,7 +319,202 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"titulo\": \"Zelda2\",\r\n    \"genero\": \"aventura\",\r\n    \"precioEstimado\": 89.99,\r\n    \"consola\": \"69ae1a24558b018f4ca46d35\"\r\n}",
+          "raw": "{\r\n        \"nombre\": \"PlayStation 7\",\r\n        \"fabricante\": \"Sony\",\r\n        \"año\": 2026,\r\n        \"generacion\": 8,\r\n        \"descripcion\": \"La última consola, nunca antes vista\",\r\n        \"precioEstimado\": 450\r\n        \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/consolas/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "consolas",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Reemplazar consola",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjA4YWVlMjhhN2VlMGRmN2E3MzA5YSIsInVzZXJuYW1lIjoiUm9kcmlnbzIiLCJlbWFpbCI6InJvZHJpMkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzM1MzY4MTUsImV4cCI6MTc3MzYyMzIxNX0.zMxv6t4Q_okzjk1wiwp7zkdtqJGojrrtBNoHN_BDNpw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\r\n        \"nombre\": \"PlayStation 7 prueba 2320 reemplazada\",\r\n        \"fabricante\": \"Sony\",\r\n        \"año\": 2026,\r\n        \"generacion\": 8,\r\n        \"descripcion\": \"La última consola, nunca antes vista\",\r\n        \"precioEstimado\": 450\r\n }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/consolas/69b60a881a80835ebe6e8d15",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "consolas",
+            "69b60a881a80835ebe6e8d15"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Reemplazar consola (error demo con fabricante)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjA4YWVlMjhhN2VlMGRmN2E3MzA5YSIsInVzZXJuYW1lIjoiUm9kcmlnbzIiLCJlbWFpbCI6InJvZHJpMkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzM1MzY4MTUsImV4cCI6MTc3MzYyMzIxNX0.zMxv6t4Q_okzjk1wiwp7zkdtqJGojrrtBNoHN_BDNpw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\r\n        \"nombre\": \"PlayStation 7 prueba 2320 reemplazada\",\r\n        \"fabricante\": \"Nombre no válido de fabricante\",\r\n        \"año\": 2026,\r\n        \"generacion\": 8,\r\n        \"descripcion\": \"La última consola, nunca antes vista\",\r\n        \"precioEstimado\": 450\r\n }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/consolas/69b60a881a80835ebe6e8d15",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "consolas",
+            "69b60a881a80835ebe6e8d15"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar consola",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjA4YWVlMjhhN2VlMGRmN2E3MzA5YSIsInVzZXJuYW1lIjoiUm9kcmlnbzIiLCJlbWFpbCI6InJvZHJpMkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzM1MzY4MTUsImV4cCI6MTc3MzYyMzIxNX0.zMxv6t4Q_okzjk1wiwp7zkdtqJGojrrtBNoHN_BDNpw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"_id\": \"69ae1b97558b018f4ca46d38\",\r\n        \"nombre\": \"Play Station actualizada\",\r\n        \"fabricante\": \"Sony\",\r\n        \"año\": 1997,\r\n        \"generacion\": 5,\r\n        \"descripcion\": \"La primera consola de Sony que cambió el mercado de juegos en CD. Incluye Final Fantasy VII y Metal Gear Solid.\",\r\n        \"precioEstimado\": 250,\r\n        \"isDeleted\": false,\r\n        \"createdAt\": \"2026-03-09T01:00:07.387Z\",\r\n        \"updatedAt\": \"2026-03-09T01:00:07.387Z\"\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/consolas/69ae1b97558b018f4ca46d38",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "consolas",
+            "69ae1b97558b018f4ca46d38"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Borrar consola",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjA4YWVlMjhhN2VlMGRmN2E3MzA5YSIsInVzZXJuYW1lIjoiUm9kcmlnbzIiLCJlbWFpbCI6InJvZHJpMkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzM1MzY4MTUsImV4cCI6MTc3MzYyMzIxNX0.zMxv6t4Q_okzjk1wiwp7zkdtqJGojrrtBNoHN_BDNpw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/consolas/69ae1a24558b018f4ca46d35",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "consolas",
+            "69ae1a24558b018f4ca46d35"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear videojuego",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjA4YWVlMjhhN2VlMGRmN2E3MzA5YSIsInVzZXJuYW1lIjoiUm9kcmlnbzIiLCJlbWFpbCI6InJvZHJpMkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzM1MzY4MTUsImV4cCI6MTc3MzYyMzIxNX0.zMxv6t4Q_okzjk1wiwp7zkdtqJGojrrtBNoHN_BDNpw",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"titulo\": \"Zelda8\",\r\n    \"genero\": \"aventura\",\r\n    \"precioEstimado\": 99.99,\r\n    \"consola\": \"69ae1a24558b018f4ca46d35\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -271,6 +621,49 @@
       "response": []
     },
     {
+      "name": "Obtener videojuego Halo",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3001/api/juegos/69b094d628a7ee0df7a730ac",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "api",
+            "juegos",
+            "69b094d628a7ee0df7a730ac"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "Editar videojuego",
       "request": {
         "auth": {
@@ -311,78 +704,6 @@
       "response": []
     },
     {
-      "name": "Login Rodrigo2 (admin)",
-      "request": {
-        "auth": {
-          "type": "noauth"
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"email\": \"rodri2@email.com\",\r\n    \"password\": \"Test1234\"\r\n}\r\n",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:3001/api/auth/login/",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3001",
-          "path": [
-            "api",
-            "auth",
-            "login",
-            ""
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Obtener usuarios",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": [
-            {
-              "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjA4YWVlMjhhN2VlMGRmN2E3MzA5YSIsInVzZXJuYW1lIjoiUm9kcmlnbzIiLCJlbWFpbCI6InJvZHJpMkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzMyODI4MzEsImV4cCI6MTc3MzM2OTIzMX0.xVMDN9UHeWjwoUoWd1JlfHprImic3FCY16pvNC_TNhs",
-              "type": "string"
-            }
-          ]
-        },
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "http://localhost:3001/api/usuarios/",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3001",
-          "path": [
-            "api",
-            "usuarios",
-            ""
-          ]
-        }
-      },
-      "response": []
-    },
-    {
       "name": "Eliminar videojuego",
       "request": {
         "auth": {
@@ -414,24 +735,22 @@
       "response": []
     },
     {
-      "name": "Login Rodrigo (user)",
+      "name": "Calcular precio promedio videojuegos",
       "request": {
         "auth": {
-          "type": "noauth"
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"email\": \"rodri@email.com\",\r\n    \"password\": \"Test1234\"\r\n}\r\n",
-          "options": {
-            "raw": {
-              "language": "json"
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YjA4YWVlMjhhN2VlMGRmN2E3MzA5YSIsInVzZXJuYW1lIjoiUm9kcmlnbzIiLCJlbWFpbCI6InJvZHJpMkBlbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NzMyODI4MzEsImV4cCI6MTc3MzM2OTIzMX0.xVMDN9UHeWjwoUoWd1JlfHprImic3FCY16pvNC_TNhs",
+              "type": "string"
             }
-          }
+          ]
         },
+        "method": "GET",
+        "header": [],
         "url": {
-          "raw": "http://localhost:3001/api/auth/login/",
+          "raw": "http://localhost:3001/api/juegos/promedioPrecio",
           "protocol": "http",
           "host": [
             "localhost"
@@ -439,9 +758,8 @@
           "port": "3001",
           "path": [
             "api",
-            "auth",
-            "login",
-            ""
+            "juegos",
+            "promedioPrecio"
           ]
         }
       },

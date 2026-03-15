@@ -9,14 +9,6 @@ import authRouter from './routes/auth.routes.js';
 const app = express();
 app.use(express.json());
 
-// app.use(miMiddlewareGlobal);
-app.use((err,req,res,next)=>{
- res.status(err.statusCode || 500).json({
-  status:"error",
-  message:err.message
- })
-})
-
 await conectarBD();
 
 app.use('/api/consolas', consolasRouter);
@@ -32,4 +24,22 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(`Escuchando en el puerto ${PORT}`);
+});
+
+
+app.use((err, req, res, next) => {
+
+    // Manejo de errores de validación de Mongoose
+    if (err.name === 'ValidationError') {
+        err.message = Object.values(err.errors)
+            .map(e => e.message)
+            .join(', ');
+        err.statusCode = 400;
+    }
+
+    res.status(err.statusCode || 500).json({
+        status: 'error',
+        mensaje: err.message
+    });
+
 });
