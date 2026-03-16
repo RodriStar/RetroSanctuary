@@ -4,6 +4,7 @@ import usuariosRouter from './routes/users.routes.js';
 import juegosRouter from './routes/juegos.routes.js';
 import conectarBD from './config/database.js';
 import authRouter from './routes/auth.routes.js';
+import errorHandler from './middlewares/errorHandler.js';
 
 
 const app = express();
@@ -27,19 +28,4 @@ app.listen(PORT, () => {
 });
 
 
-app.use((err, req, res, next) => {
-
-    // Manejo de errores de validación de Mongoose
-    if (err.name === 'ValidationError') {
-        err.message = Object.values(err.errors)
-            .map(e => e.message)
-            .join(', ');
-        err.statusCode = 400;
-    }
-
-    res.status(err.statusCode || 500).json({
-        status: 'error',
-        mensaje: err.message
-    });
-
-});
+app.use(errorHandler);
